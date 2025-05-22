@@ -1,0 +1,46 @@
+vpc_name = "default"
+vpc_tags = {
+    "Name" = "default"
+}
+
+subnet_tags = {
+    "Name" = "default-*"
+}
+
+sftp_users = {
+    "ali" = {
+        "ssh_public_key_files": [
+            "ali-user.pub"
+        ],
+        "logical_directory_mappings" = [
+        {
+            "source_directory": "/sftpbucketch786110", #target > this is where user fetches, uploads files etc ..the actual path to the s3 bucket and folder.
+            "user_directory": "/sftpbucketch786110"  #entry > this is what the user sees when logged in to sftp server. This can be an arbitary naming.
+        }
+        ]
+
+    },
+    "aafreen" = {
+        "ssh_public_key_files": [
+            "aafreen-user.pub"
+        ],
+        "logical_directory_mappings" = [
+        {
+            "source_directory": "/sftpbucketch786110/aafreen", #target > this is where user fetches, uploads files etc ..the actual path to the s3 bucket and folder.
+            "user_directory": "/acsp-aml-data/aafreen" #entry > this is what the user sees when logged in to sftp server. This can be an arbitary naming.
+        },
+        ]
+    },
+    "aazeen" = {
+        "ssh_public_key_files": [
+            "aazeen-user.pub"
+        ],
+        "logical_directory_mappings" = [
+        {
+            "source_directory": "/sftpbucketch786110/aazeen",  #target > this is where user fetches, uploads files etc ..the actual path to the s3 bucket and folder.
+            "user_directory": "/sftpbucketch786110/aazeen" #entry > this is what the user sees when logged in to sftp server. This can be an arbitary naming.
+        },
+    ]
+}
+
+}
