@@ -12,6 +12,18 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "sftp" {
     }
   }
 }
+
+resource "aws_s3_bucket_server_side_encryption_configuration" "sftp11" {
+  bucket = aws_s3_bucket.sftp.id
+
+  rule {
+    apply_server_side_encryption_by_default {
+      kms_master_key_id = aws_kms_key.acsp-s3.arn
+      sse_algorithm     = "aws:kms"
+    }
+  }
+}
+
 resource "aws_s3_bucket_public_access_block" "sftp_block" {
   bucket = aws_s3_bucket.sftp.id
 
