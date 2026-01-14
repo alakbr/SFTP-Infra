@@ -2,6 +2,10 @@ resource "aws_s3_bucket" "sftp" {
   bucket = "sftpbucketch786110"
 }
 
+resource "aws_s3_bucket" "sftp" {
+  bucket = "sftpbucketch786111"
+}
+
 resource "aws_s3_bucket_server_side_encryption_configuration" "sftp" {
   bucket = aws_s3_bucket.sftp.id
 
